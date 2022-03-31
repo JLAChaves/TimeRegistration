@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeRegistration", "TimeRegistration\TimeRegistration.csproj", "{0FF068C2-737C-4597-A03A-315C1A8558A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FF068C2-737C-4597-A03A-315C1A8558A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF068C2-737C-4597-A03A-315C1A8558A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF068C2-737C-4597-A03A-315C1A8558A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF068C2-737C-4597-A03A-315C1A8558A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4291DE67-CFBE-4C32-B1B3-6FA10E82A4C9}
+	EndGlobalSection
+EndGlobal
