@@ -1,0 +1,2 @@
+# TimeRegistration
+This API was developed thinking about people who work on projects and charge by the hour worked. The proposal is to register a contract in a database, being possible to add an exit and entry time. The API then calculates the total hours logged for a given contract and calculates the amount to be billed based on the defined hourly rate. The idea is to facilitate registration and calculations.
