@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using TimeRegistration.Data;
+using TimeRegistration.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<TimeContext>(p => p.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
+builder.Services.AddScoped<IContractRepository, ContractRepository>();
+
+builder.Services.AddScoped<ITimeLogRepository, TimeLogRepository>();
 
 
 builder.Services.AddControllers().AddJsonOptions(x =>

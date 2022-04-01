@@ -8,7 +8,7 @@ namespace TimeRegistration.Repositories
     {
         public bool Create(TimeLog timeLog);
         public TimeLog[] ReadAll();
-        public bool UpdateExit(int id);
+        public bool UpdateHourExit(int id);
         public bool Delete(TimeLog timeLog);
         public double Hours(TimeLog timeLog);
     }
@@ -42,15 +42,12 @@ namespace TimeRegistration.Repositories
             return query.ToArray();
         }
 
-        public bool UpdateExit(int id)
+        public bool UpdateHourExit(int id)
         {
             try
             {
                 var timeLogExit = _context.TimesLogs.FirstOrDefault(h => h.Id == id);
-
-                timeLogExit.EndTime = DateTime.Now;
-                timeLogExit.Hours = Math.Round(Hours(timeLogExit), 2);
-
+                HourExit(timeLogExit);
                 _context.Update(timeLogExit);
                 _context.SaveChanges();
 
@@ -88,6 +85,12 @@ namespace TimeRegistration.Repositories
         private void TimeNow(TimeLog timeLog)
         {
             timeLog.StartTime = DateTime.Now;
+            timeLog.EndTime = DateTime.Now;
+            timeLog.Hours = Math.Round(Hours(timeLog), 2);
+        }
+
+        private void HourExit(TimeLog timeLog)
+        {
             timeLog.EndTime = DateTime.Now;
             timeLog.Hours = Math.Round(Hours(timeLog), 2);
         }
