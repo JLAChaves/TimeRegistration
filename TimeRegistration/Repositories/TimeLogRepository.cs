@@ -8,6 +8,7 @@ namespace TimeRegistration.Repositories
     {
         public bool Create(TimeLog timeLog);
         public TimeLog[] ReadAll();
+        public TimeLog ReadId(int id);
         public bool UpdateHourExit(int id);
         public bool Delete(TimeLog timeLog);
         public double Hours(TimeLog timeLog);
@@ -40,6 +41,13 @@ namespace TimeRegistration.Repositories
         {
             IQueryable<TimeLog> query = _context.TimesLogs.AsNoTracking().OrderBy(h => h.Id);
             return query.ToArray();
+        }
+
+        public TimeLog ReadId(int id)
+        {
+            IQueryable<TimeLog> query = _context.TimesLogs;
+            query = query.AsNoTracking().OrderBy(h => h.Id);
+            return query.FirstOrDefault(p => p.Id == id);
         }
 
         public bool UpdateHourExit(int id)

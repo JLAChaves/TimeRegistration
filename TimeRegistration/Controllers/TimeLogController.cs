@@ -9,11 +9,13 @@ namespace TimeRegistration.Controllers
     public class TimeLogController : ControllerBase
     {
         private readonly ITimeLogRepository _repo;
-
-        public TimeLogController(ITimeLogRepository repo)
+        private readonly IContractRepository _repoContract;
+        public TimeLogController(ITimeLogRepository repo, IContractRepository repoContract)
         {
             _repo = repo;
+            _repoContract = repoContract;
         }
+
 
         [HttpPost]
         public IActionResult Create(TimeLog timeLog)
@@ -43,8 +45,14 @@ namespace TimeRegistration.Controllers
         [HttpPut("UpdateExit/{id}")]
         public IActionResult UpdateExit(int id)
         {
-            if (_repo.UpdateExit(id))
+            if (_repo.UpdateHourExit(id))
             {
+                var contractId = _repo.ReadId(id);
+                int? id2 = contractId.ContractId;
+                if (_repoContract.UpdateTotalHours(id2))
+                {
+                    Ok();
+                }
                 return Ok();
             }
             return NotFound();

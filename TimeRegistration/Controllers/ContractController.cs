@@ -77,8 +77,8 @@ namespace TimeRegistration.Controllers
             return NotFound();
         }
 
-        [HttpPut("Update/{id}")]
-        public IActionResult UpdateValue(int id)
+        [HttpPut("UpdateHours/{id}")]
+        public IActionResult UpdateTotalHours(int id)
         {
             if (_repo.UpdateTotalHours(id))
             {
@@ -87,7 +87,7 @@ namespace TimeRegistration.Controllers
             return NotFound();
         }
 
-        [HttpDelete]
+        [HttpDelete("Delete/{id}")]
         public IActionResult Delete(Contract contract)
         {
             if (_repo.Delete(contract))

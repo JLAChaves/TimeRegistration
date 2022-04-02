@@ -11,7 +11,7 @@ namespace TimeRegistration.Repositories
         public Contract ReadId(int id);
         public Contract[] ReadNames(string name);
         public bool Update(Contract contract);
-        public bool UpdateTotalHours(int id);
+        public bool UpdateTotalHours(int? id);
         public bool Delete(Contract contract);
     }
 
@@ -95,7 +95,7 @@ namespace TimeRegistration.Repositories
             }
         }
 
-        public bool UpdateTotalHours(int id)
+        public bool UpdateTotalHours(int? id)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace TimeRegistration.Repositories
                 return false;
             }
         }
-        public double TotalHours(int id)
+        public double TotalHours(int? id)
         {
             return _context.TimesLogs.Where(p => p.ContractId == id).Sum(p => p.Hours);
         }

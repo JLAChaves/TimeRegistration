@@ -12,7 +12,7 @@ using TimeRegistration.Data;
 namespace TimeRegistration.Migrations
 {
     [DbContext(typeof(TimeContext))]
-    [Migration("20220331183407_init")]
+    [Migration("20220401211938_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
