@@ -39,7 +39,7 @@ namespace TimeRegistration.Migrations
                     b.Property<double?>("TotalValue")
                         .HasColumnType("float");
 
-                    b.Property<double?>("ValuePerHour")
+                    b.Property<double>("ValuePerHour")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

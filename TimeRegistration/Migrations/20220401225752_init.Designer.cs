@@ -12,7 +12,7 @@ using TimeRegistration.Data;
 namespace TimeRegistration.Migrations
 {
     [DbContext(typeof(TimeContext))]
-    [Migration("20220401211938_init")]
+    [Migration("20220401225752_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace TimeRegistration.Migrations
                     b.Property<double?>("TotalValue")
                         .HasColumnType("float");
 
-                    b.Property<double?>("ValuePerHour")
+                    b.Property<double>("ValuePerHour")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

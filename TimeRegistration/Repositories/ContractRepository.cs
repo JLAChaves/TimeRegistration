@@ -101,6 +101,7 @@ namespace TimeRegistration.Repositories
             {
                 var contract = _context.Contracts.FirstOrDefault(p => p.Id == id);
                 contract.TotalHours = Math.Round(TotalHours(id), 2);
+                contract.TotalValue = TotalValue(contract);
                 _context.Contracts.Update(contract);
                 _context.SaveChanges();
                 return true;
@@ -113,6 +114,11 @@ namespace TimeRegistration.Repositories
         public double TotalHours(int? id)
         {
             return _context.TimesLogs.Where(p => p.ContractId == id).Sum(p => p.Hours);
+        }
+
+        public double TotalValue(Contract contract)
+        {
+            return contract.TotalHours * contract.ValuePerHour;
         }
     }
 }
